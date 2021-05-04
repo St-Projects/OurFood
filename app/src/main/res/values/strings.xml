@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">OurFood</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+    <string name="registrar">Registrar</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="email">Email</string>
+    <string name="entre_aqui">Já é cadastrado? Entre aqui!</string>
+    <string name="entre_aqui2">Ainda não é registrado? Registre-se aqui!</string>
+    <string name="title_activity_comoda_japonesa">Map</string>
+    <string name="title_activity_mapa">Map</string>
+</resources>
