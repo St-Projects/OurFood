@@ -1,12 +1,16 @@
 package com.example.ourfood;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,87 +22,92 @@ import java.util.Calendar;
 
 public class Escolha extends AppCompatActivity {
 
-Button button;
+    Button button;
 
 
-    private void abrirMapsNagao(){
+    private void abrirMapsMexicanissimo(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.4072);
-        maps.putExtra("l2",-46.8586);
-        maps.putExtra("nome", "Nagao Sushi");
-        maps.putExtra("image", R.drawable.japa);
+        maps.putExtra("l1", -23.55545134398203);
+        maps.putExtra("l2",-46.688916172169236);
+        maps.putExtra("nome", "Mexicaníssimo");
+        maps.putExtra("image", R.drawable.frango);
         startActivity(maps);
     }
-    private void abrirMapsGrandcru(){
+    private void abrirMapsTaqueria(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.49813491893413);
-        maps.putExtra("l2",-46.847469661506615);
-        maps.putExtra("nome", "Grand Cru");
-        maps.putExtra("image", R.drawable.lasanha);
+        maps.putExtra("l1", -23.545761007078266);
+        maps.putExtra("l2",-46.66140907647792);
+        maps.putExtra("nome", "Taqueria");
+        maps.putExtra("image", R.drawable.taco);
         startActivity(maps);
     }
-    private void abrirMapsDominos(){
+    private void abrirMapsOak(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.4989);
-        maps.putExtra("l2",-46.8536);
-        maps.putExtra("nome", "Domino's Pizza");
-        maps.putExtra("image", R.drawable.pizzaria);
+        maps.putExtra("l1", -23.548948450140863);
+        maps.putExtra("l2",-46.58016630417413);
+        maps.putExtra("nome", "Oak's burritos");
+        maps.putExtra("image", R.drawable.burru_frito);
         startActivity(maps);
     }
-    private void abrirMapsExBurguer(){
+    private void abrirMapsDonPancho(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.4093);
-        maps.putExtra("l2",-46.8871);
-        maps.putExtra("nome", "Ex - Burguer");
-        maps.putExtra("image", R.drawable.hamburgueria);
+        maps.putExtra("l1", -23.577697736695253);
+        maps.putExtra("l2",-46.64599644330109);
+        maps.putExtra("nome", "Don Pancho");
+        maps.putExtra("image", R.drawable.sla);
         startActivity(maps);
     }
-    private void abrirMapsTiãoespetinhos(){
+    private void abrirMapsHechoenMex(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.557170325484766);
-        maps.putExtra("l2",-46.75549541185888);
-        maps.putExtra("nome", "Tião espetinhos");
-        maps.putExtra("image", R.drawable.buteco);
+        maps.putExtra("l1", -23.577734573865413);
+        maps.putExtra("l2",-46.67757386013628);
+        maps.putExtra("nome", "Hecho en Mexico");
+        maps.putExtra("image", R.drawable.pozzole);
         startActivity(maps);
     }
-    private void abrirMapsSodie(){
+    private void abrirMapsGuadalaraja(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.44620612463328);
-        maps.putExtra("l2",-46.914373138267806);
-        maps.putExtra("nome", "Sodiê");
-        maps.putExtra("image", R.drawable.bolos);
+        maps.putExtra("l1", -23.541091070815547);
+        maps.putExtra("l2",-46.58987450527248);
+        maps.putExtra("nome", "Guadalajara");
+        maps.putExtra("image", R.drawable.nacho);
         startActivity(maps);
     }
-    private void abrirMapshabbibs(){
+    private void abrirMapsLosBigotes(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.5025 );
-        maps.putExtra("l2",-46.8311);
-        maps.putExtra("nome", "habbibs");
-        maps.putExtra("image", R.drawable.hab);
+        maps.putExtra("l1", -23.590619091513883);
+        maps.putExtra("l2",-46.654159997785165);
+        maps.putExtra("nome", "Los Bigotes");
+        maps.putExtra("image", R.drawable.parece_pastel);
         startActivity(maps);
     }
-    private void abrirMapsSoniaPasteis(){
+    private void abrirMapsSiSenor(){
         Intent maps = new Intent(this, Mapa.class);
-        maps.putExtra("l1", -23.4096);
-        maps.putExtra("l2",-46.8894);
-        maps.putExtra("nome", "Sonia Pasteis");
-        maps.putExtra("image", R.drawable.pastelaria);
+        maps.putExtra("l1", -23.490891307184995);
+        maps.putExtra("l2",-46.634997059005926);
+        maps.putExtra("nome", "Sí Señor!");
+        maps.putExtra("image", R.drawable.pamonha_mexicana);
         startActivity(maps);
     }
 
-    public void notifyThis(String title, String message) {
-        NotificationCompat.Builder b = new NotificationCompat.Builder(Escolha.this);
-        b.setAutoCancel(true)
-                .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setWhen(System.currentTimeMillis())
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void show_Notification(){
+        Intent intent=new Intent(getApplicationContext(),Escolha.class);
+        String CHANNEL_ID="MYCHANNEL";
+        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,"name",NotificationManager.IMPORTANCE_HIGH);
+        PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),1,intent,0);
+        Notification notification=new Notification.Builder(getApplicationContext(),CHANNEL_ID)
+                .setContentText("")
+                .setContentTitle("O APP fechou")
+                .setContentIntent(pendingIntent)
+                .addAction(R.drawable.ic_baseline_food_bank_24,"OurFood",pendingIntent)
+                .setChannelId(CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_baseline_food_bank_24)
-                .setTicker("{your tiny message}")
-                .setContentTitle(title)
-                .setContentText(message)
-                .setContentInfo("INFO");
+                .build();
+        NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(notificationChannel);
+        notificationManager.notify(1,notification);
 
-        NotificationManager nm = (NotificationManager) Escolha.this.getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.notify(1, b.build());
     }
 
 
@@ -114,57 +123,55 @@ Button button;
         cardone.setOnClickListener(new CardView.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirMapsNagao();
+                abrirMapsMexicanissimo();
             }
         });
         final CardView cardtwo = (CardView)findViewById(R.id.CardViewTwo);
         cardtwo.setOnClickListener(new CardView.OnClickListener(){
             @Override
             public void onClick(View v) {
-                abrirMapsGrandcru();
+                abrirMapsTaqueria();
             }
         });
         final CardView cardthree = (CardView)findViewById(R.id.CardViewThree);
         cardthree.setOnClickListener(new CardView.OnClickListener(){
             @Override
             public void onClick(View v) {
-                abrirMapsDominos();
+                abrirMapsOak();
             }
         });
         final CardView cardfour = (CardView)findViewById(R.id.CardViewFour);
         cardfour.setOnClickListener(new CardView.OnClickListener(){
             @Override
             public void onClick(View v) {
-                abrirMapsExBurguer();
+                abrirMapsDonPancho();
             }
         });
         final CardView cardfive = (CardView)findViewById(R.id.CardViewFive);
         cardfive.setOnClickListener(new CardView.OnClickListener(){
             @Override
             public void onClick(View v) {
-                abrirMapsSoniaPasteis();
+                abrirMapsHechoenMex();
             }
         });
         final CardView cardsix = (CardView)findViewById(R.id.CardViewSix);
         cardsix.setOnClickListener(new CardView.OnClickListener(){
             @Override
             public void onClick(View v) {
-                abrirMapshabbibs();
+                abrirMapsGuadalaraja();
             }
         });
         final CardView cardseven = (CardView)findViewById(R.id.CardViewSeven);
         cardseven.setOnClickListener(new CardView.OnClickListener(){
             @Override
             public void onClick(View v) {
-                abrirMapsTiãoespetinhos();
+                abrirMapsLosBigotes();
             }
         });
         final CardView cardeight = (CardView)findViewById(R.id.CardViewEight);
         cardeight.setOnClickListener(new CardView.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                abrirMapsSodie();
-            }
+            public void onClick(View v) { abrirMapsSiSenor(); }
         });
 
         final TextView texto = (TextView)findViewById(R.id.textview);
@@ -177,29 +184,30 @@ Button button;
         String nome = it.getStringExtra("nome2");
 
         if (hora > 6 && hora < 12){
-            mensagem = "Bom dia " + nome + "! O que você ira comer agora?";
+            mensagem = "Bom Dia " + nome + getString(R.string.final_frase);
         }
         else if (hora > 12 && hora < 18)
         {
-            mensagem = "Boa tarde "+ nome + "! O que você ira comer agora?";
+            mensagem = "Boa Tarde "+ nome + getString(R.string.final_frase);
         }
         else if (hora > 0 && hora < 6)
         {
-            mensagem = "Boa Madrugada "+ nome + "! O que você ira comer agora?";
+            mensagem = "Boa Madrugada "+ nome + getString(R.string.final_frase);
         }
         else
         {
-            mensagem = "Boa noite "+ nome + "! O que você ira comer agora?";
+            mensagem = "Boa Noite "+ nome + getString(R.string.final_frase);
         }
 
         texto.setText(mensagem);
 
         button = (Button)findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-               finishAffinity();
-               notifyThis("OurFood","O app fechou");
+                finishAffinity();
+                show_Notification();
             }
         });
 

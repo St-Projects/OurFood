@@ -17,7 +17,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Login extends AppCompatActivity {
 
-    TextInputEditText edt_usuario, edt_senha;
+    EditText edt_usuario, edt_senha;
     Button btn_logar;
     TextView txtentreaqui2;
     ProgressBar progressBar;
@@ -30,8 +30,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        edt_usuario = (TextInputEditText)findViewById(R.id.edt_Usuario);
-        edt_senha = (TextInputEditText)findViewById(R.id.edt_Senha);
+        edt_usuario = (EditText) findViewById(R.id.edt_Usuario);
+        edt_senha = (EditText) findViewById(R.id.edt_Senha);
         txtentreaqui2 = (TextView)findViewById(R.id.loginText);
         btn_logar = (Button)findViewById(R.id.btn_Login);
         progressBar = (ProgressBar)findViewById(R.id.progressbar);

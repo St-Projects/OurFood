@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +19,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Registrar extends AppCompatActivity {
 
-    TextInputEditText edt_nomeCompleto, edt_usuario, edt_senha, edt_email;
+    EditText edt_nomeCompleto, edt_usuario, edt_senha, edt_email;
     Button btn_registrar;
     TextView txtentreaqui;
     ProgressBar progressBar;
@@ -28,10 +29,10 @@ public class Registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        edt_nomeCompleto = (TextInputEditText)findViewById(R.id.edt_NomeCompleto);
-        edt_usuario = (TextInputEditText)findViewById(R.id.edt_Usuario);
-        edt_senha = (TextInputEditText)findViewById(R.id.edt_Senha);
-        edt_email = (TextInputEditText)findViewById(R.id.edt_email);
+        edt_nomeCompleto = (EditText) findViewById(R.id.edt_NomeCompleto);
+        edt_usuario = (EditText) findViewById(R.id.edt_Usuario);
+        edt_senha = (EditText)findViewById(R.id.edt_Senha);
+        edt_email = (EditText)findViewById(R.id.edt_email);
         btn_registrar = (Button)findViewById(R.id.btn_Registrar);
         txtentreaqui = (TextView)findViewById(R.id.txtEntreaqui);
         progressBar = (ProgressBar)findViewById(R.id.progressbar);
