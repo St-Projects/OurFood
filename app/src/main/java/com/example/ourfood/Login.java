@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = usuario;
                             data[1] = senha;
-                            PutData putData = new PutData("http://localhost:8080/android/api/entrar.php", "POST", field, data);
+                            PutData putData = new PutData("http://localhost:8080/android/entrar.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     //Fim da ProgressBar (Colocando a visibilidade GONE)
