@@ -46,7 +46,7 @@ public class Escolha extends AppCompatActivity {
         maps.putExtra("l1", -23.548948450140863);
         maps.putExtra("l2",-46.58016630417413);
         maps.putExtra("nome", "Oak's burritos");
-        maps.putExtra("image", R.drawable.burru_frito);
+        maps.putExtra("image", R.drawable.burrito);
         startActivity(maps);
     }
     private void abrirMapsDonPancho(){
@@ -54,7 +54,7 @@ public class Escolha extends AppCompatActivity {
         maps.putExtra("l1", -23.577697736695253);
         maps.putExtra("l2",-46.64599644330109);
         maps.putExtra("nome", "Don Pancho");
-        maps.putExtra("image", R.drawable.sla);
+        maps.putExtra("image", R.drawable.empada);
         startActivity(maps);
     }
     private void abrirMapsHechoenMex(){
